@@ -1,0 +1,59 @@
+<div class="profile-container">
+	<div class="profile-header">
+		<h2>My Profile</h2>
+	</div>
+
+	<div class="profile-body">
+		<div class="profile-sidebar">
+			<div class="profile-buttons">
+				<button mat-raised-button color="primary" (click)="updateUser()">
+					Update Profile
+				</button>
+				<button mat-stroked-button color="warn" (click)="deleteUser()">
+					Delete Account
+				</button>
+			</div>
+		</div>
+
+		<div class="profile-form">
+			<mat-form-field appearance="fill">
+				<mat-label>Username</mat-label>
+				<input matInput [(ngModel)]="userData.username" />
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Password</mat-label>
+				<input matInput type="password" [(ngModel)]="userData.password" />
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Email</mat-label>
+				<input matInput type="email" [(ngModel)]="userData.email" />
+			</mat-form-field>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Birthday</mat-label>
+				<input matInput type="date" [(ngModel)]="userData.birthday" />
+			</mat-form-field>
+		</div>
+	</div>
+
+	<div class="favorite-movies" *ngIf="favoriteMovies.length > 0">
+		<h3>Favorite Movies</h3>
+		<div class="favorites-container">
+			<div class="favorite-card" *ngFor="let movie of favoriteMovies">
+				<img [src]="movie.imageURL" [alt]="movie.title" />
+				<div class="favorite-info">
+					<p>{{ movie.title }}</p>
+					<mat-icon
+						class="favorite-icon"
+						(click)="removeFromFavorites(movie._id)"
+						style="color: red; cursor: pointer"
+					>
+						favorite
+					</mat-icon>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

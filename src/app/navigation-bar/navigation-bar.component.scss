@@ -1,0 +1,36 @@
+nav.nav-bar {
+	display: flex;
+	align-items: center;
+	background: #fff;
+	padding: 0 24px;
+	height: 56px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	border-bottom: 1px solid #e0e0e0;
+}
+
+nav.nav-bar a {
+	color: #222;
+	font-weight: 500;
+	padding: 8px 18px;
+	margin-right: 12px;
+	border-radius: 4px;
+	transition: background 0.2s, color 0.2s;
+	background: transparent;
+	text-decoration: none;
+	display: inline-block;
+	letter-spacing: 0.5px;
+}
+
+nav.nav-bar a.active,
+nav.nav-bar a:hover {
+	background: #f4f4f4;
+	color: #222;
+	box-shadow: 0 0 8px #bdbdbd80;
+}
+
+nav.nav-bar .logout-link {
+	background: #f4f4f4;
+	color: #222;
+	margin-left: auto;
+	box-shadow: none;
+}

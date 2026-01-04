@@ -1,0 +1,94 @@
+.profile-container {
+	max-width: 900px;
+	margin: 40px auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile-header {
+	text-align: center;
+	margin-bottom: 32px;
+}
+.profile-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #222;
+}
+
+.profile-body {
+	display: flex;
+	gap: 32px;
+	flex-wrap: wrap;
+}
+.profile-sidebar {
+	flex: 0 0 220px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+}
+.profile-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+}
+.profile-buttons button {
+	width: 100%;
+	font-size: 1rem;
+}
+.profile-form {
+	flex: 1;
+	min-width: 260px;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+.profile-form mat-form-field {
+	width: 100%;
+}
+.favorite-movies {
+	margin-top: 40px;
+}
+.favorites-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 20px;
+}
+.favorite-card {
+	background: #f4f4f4;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.favorite-card img {
+	width: 100px;
+	height: 140px;
+	object-fit: cover;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+.favorite-info {
+	text-align: center;
+}
+.favorite-info p {
+	font-size: 1rem;
+	color: #222;
+	margin-bottom: 6px;
+}
+.favorite-icon {
+	font-size: 1.5rem;
+	color: #888;
+	cursor: pointer;
+	transition: color 0.2s;
+}
+.favorite-icon:hover {
+	color: #222;
+}

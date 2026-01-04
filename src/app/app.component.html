@@ -1,9 +1,2 @@
-<div class="main-page">
-  <h1>Welcome to MyFlix!</h1>
-  <button mat-raised-button (click)="openUserRegistrationDialog()" style="margin-right: 10px" color="primary">
-    Sign Up
-  </button>
-  <button mat-raised-button (click)="openUserLoginDialog()" style="margin-right: 10px" color="primary">
-    Login
-  </button>
-</div>
+<app-navigation-bar *ngIf="isLoggedIn()"></app-navigation-bar>
+<router-outlet></router-outlet>

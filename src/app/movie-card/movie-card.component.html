@@ -1,0 +1,19 @@
+<div class="movie-list">
+    <mat-card *ngFor="let movie of movies; let i = index" class="movie-card">
+        <mat-card-header>
+            <mat-card-title>{{ movie.title }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="movie.imageURL" alt="{{ movie.title }} poster" />
+        <mat-card-content>
+            <p>{{ movie.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-icon-button color="primary" (click)="openMovieDetails(movie)">
+                <mat-icon>info</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" (click)="toggleFavorite(movie._id)">
+                <mat-icon>{{ isFavorite(movie._id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
