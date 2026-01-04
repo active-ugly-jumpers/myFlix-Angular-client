@@ -2,8 +2,12 @@
 	<h2>{{ movie.title }} ({{ movie.year }})</h2>
 	<img [src]="movie.imageURL" alt="{{ movie.title }} poster" style="max-width: 300px;">
 	<p><strong>Description:</strong> {{ movie.description }}</p>
-	<p><strong>Genre:</strong> {{ movie.genre?.name }}</p>
-	<p><strong>Director:</strong> {{ movie.director?.name }}</p>
+	<p><strong>Genre:</strong> {{ movie.genre?.name }}
+		<button class="details-link" (click)="goToGenre(movie.genre?.name)">View Genre</button>
+	</p>
+	<p><strong>Director:</strong> {{ movie.director?.name }}
+		<button class="details-link" (click)="goToDirector(movie.director?.name)">View Director</button>
+	</p>
 	<p><strong>Featured:</strong> {{ movie.featured ? 'Yes' : 'No' }}</p>
 	<button mat-raised-button color="primary" (click)="goToMovies()" style="margin-top: 24px;">Return to All Movies</button>
 </div>

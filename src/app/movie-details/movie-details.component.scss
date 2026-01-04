@@ -1,3 +1,22 @@
+.details-link {
+	background: #f4f4f4;
+	color: #1976d2;
+	font-size: 1rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 14px;
+	margin-left: 12px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+	cursor: pointer;
+	letter-spacing: 0.5px;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.details-link:hover {
+	background: #e0e0e0;
+	color: #1565c0;
+	box-shadow: 0 0 6px #bdbdbd80;
+}
 .movie-details button {
 	background: #f4f4f4;
 	color: #222;

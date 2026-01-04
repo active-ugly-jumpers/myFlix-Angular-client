@@ -32,4 +32,16 @@ export class MovieDetailsComponent implements OnInit {
   goToMovies(): void {
     this.router.navigate(['/movies']);
   }
+
+  goToDirector(name: string): void {
+    if (name) {
+      this.router.navigate(['/directors', name]);
+    }
+  }
+
+  goToGenre(name: string): void {
+    if (name) {
+      this.router.navigate(['/genres', name]);
+    }
+  }
 }

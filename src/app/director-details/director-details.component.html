@@ -1,1 +1,9 @@
-<p>director-details works!</p>
+<div *ngIf="director" class="director-details">
+	<h2>{{ director.name }}</h2>
+	<p><strong>Bio:</strong> {{ director.bio }}</p>
+	<p><strong>Birth:</strong> {{ director.birth }}</p>
+	<p *ngIf="director.death"><strong>Death:</strong> {{ director.death }}</p>
+</div>
+<div *ngIf="!director">
+	<p>Loading director details...</p>
+</div>
