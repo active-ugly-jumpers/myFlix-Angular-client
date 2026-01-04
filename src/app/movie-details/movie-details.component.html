@@ -1,1 +1,12 @@
-<p>movie-details works!</p>
+<div *ngIf="movie" class="movie-details">
+	<h2>{{ movie.title }} ({{ movie.year }})</h2>
+	<img [src]="movie.imageURL" alt="{{ movie.title }} poster" style="max-width: 300px;">
+	<p><strong>Description:</strong> {{ movie.description }}</p>
+	<p><strong>Genre:</strong> {{ movie.genre?.name }}</p>
+	<p><strong>Director:</strong> {{ movie.director?.name }}</p>
+	<p><strong>Featured:</strong> {{ movie.featured ? 'Yes' : 'No' }}</p>
+	<button mat-raised-button color="primary" (click)="goToMovies()" style="margin-top: 24px;">Return to All Movies</button>
+</div>
+<div *ngIf="!movie">
+	<p>Loading movie details...</p>
+</div>

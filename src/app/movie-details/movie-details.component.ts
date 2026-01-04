@@ -1,11 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { FetchApiDataService } from '../fetch-api-data.service';
 
 @Component({
   selector: 'app-movie-details',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './movie-details.component.html',
-  styleUrl: './movie-details.component.scss'
+  styleUrls: ['./movie-details.component.scss']
 })
-export class MovieDetailsComponent {
+export class MovieDetailsComponent implements OnInit {
+  movie: any = null;
 
+  constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    const token = localStorage.getItem('token');
+    if (id && token) {
+      this.fetchApiData.getAllMovies(token).subscribe({
+        next: (movies: any[]) => {
+          this.movie = movies.find(m => m._id === id);
+        },
+        error: (err: any) => console.error('Error loading movie:', err),
+      });
+    }
+  }
+
+  goToMovies(): void {
+    this.router.navigate(['/movies']);
+  }
 }

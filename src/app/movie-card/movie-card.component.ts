@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +19,7 @@ export class MovieCardComponent implements OnInit {
   username: string | null = null;
   selectedMovie: any = null;
 
-  constructor(private fetchApiData: FetchApiDataService) {}
+  constructor(private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
     this.username = localStorage.getItem('username');
@@ -71,7 +72,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   openMovieDetails(movie: any): void {
-    this.selectedMovie = movie;
+    this.router.navigate(['/movies', movie._id]);
   }
 
   closeMovieDetails(): void {
