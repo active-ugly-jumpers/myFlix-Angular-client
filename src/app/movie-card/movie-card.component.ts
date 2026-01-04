@@ -40,7 +40,7 @@ export class MovieCardComponent implements OnInit {
     if (!token || !this.username) return;
     this.fetchApiData.getUser(this.username, token).subscribe({
       next: (user: any) => {
-        this.favoriteMovies = user.FavoriteMovies || [];
+        this.favoriteMovies = user.favoriteMovies || [];
       },
       error: (err: any) => console.error('Error loading favorites:', err),
     });
@@ -56,14 +56,14 @@ export class MovieCardComponent implements OnInit {
     if (this.isFavorite(movieId)) {
       this.fetchApiData.deleteFavoriteMovie(this.username, movieId, token).subscribe({
         next: () => {
-          this.favoriteMovies = this.favoriteMovies.filter((id) => id !== movieId);
+          this.loadFavorites(); // Only update after backend confirms
         },
         error: (err: any) => console.error('Error removing favorite:', err),
       });
     } else {
       this.fetchApiData.addFavoriteMovie(this.username, movieId, token).subscribe({
         next: () => {
-          this.favoriteMovies.push(movieId);
+          this.loadFavorites(); // Only update after backend confirms
         },
         error: (err: any) => console.error('Error adding favorite:', err),
       });

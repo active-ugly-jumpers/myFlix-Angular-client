@@ -91,7 +91,7 @@ export class FetchApiDataService {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + token
     });
-    return this.http.post(apiUrl + 'users/' + username + '/movies/' + movieId, {}, { headers }).pipe(
+    return this.http.put(apiUrl + 'users/' + username + '/movies/' + movieId, {}, { headers }).pipe(
       catchError(this.handleError)
     );
   }
@@ -127,6 +127,10 @@ export class FetchApiDataService {
   }
 
   private handleError(error: HttpErrorResponse): any {
+    if (error.status && error.status < 400) {
+      // Not an error, just log and continue
+      console.warn('Non-error response in handleError:', error);
+    }
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occurred:', error.error.message);
     } else {
