@@ -1,93 +1,77 @@
-.details-link {
-	background: #f4f4f4;
-	color: #1976d2;
+.inline-btn {
+	min-width: unset;
+	padding: 2px 12px;
+	margin-left: 8px;
 	font-size: 1rem;
-	font-weight: 500;
-	border: none;
-	border-radius: 4px;
-	padding: 4px 14px;
-	margin-left: 12px;
-	box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-	cursor: pointer;
-	letter-spacing: 0.5px;
-	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+	vertical-align: middle;
 }
-.details-link:hover {
-	background: #e0e0e0;
-	color: #1565c0;
-	box-shadow: 0 0 6px #bdbdbd80;
-}
-.movie-details button {
-	background: #f4f4f4;
-	color: #222;
-	font-size: 1.1rem;
-	font-weight: 500;
-	border: none;
-	border-radius: 4px;
-	padding: 8px 18px;
-	margin-top: 24px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-	cursor: pointer;
-	letter-spacing: 0.5px;
-	transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-}
-.movie-details button:hover {
-	background: #e0e0e0;
-	color: #222;
-	box-shadow: 0 0 8px #bdbdbd80;
-}
+
+// Layout
 .movie-details {
-	max-width: 700px;
+	max-width: 900px;
 	margin: 40px auto;
 	background: #fff;
 	border-radius: 16px;
 	box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-	padding: 32px;
+	padding: 32px 32px 32px 32px;
+}
+
+.movie-details-header {
 	display: flex;
-	flex-direction: column;
+	justify-content: flex-end;
 	align-items: center;
-}
-
-.movie-details h2 {
-	font-size: 2rem;
-	font-weight: 600;
-	color: #222;
 	margin-bottom: 18px;
-	text-align: center;
 }
 
-.movie-details img {
+.back-btn {
+	font-size: 1rem;
+	font-weight: 500;
+	min-width: 180px;
+}
+
+.movie-details-content {
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
+	align-items: flex-start;
+}
+
+.movie-details-image img {
 	width: 220px;
 	height: 320px;
 	object-fit: cover;
 	border-radius: 10px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-	margin-bottom: 24px;
 }
 
-.movie-details p {
+.movie-details-info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.movie-details-info h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #222;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.movie-year {
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.movie-details-info p {
 	font-size: 1.1rem;
 	color: #222;
-	margin-bottom: 12px;
+	margin-bottom: 8px;
 	text-align: left;
-	width: 100%;
 }
 
-.movie-details strong {
-	color: #1976d2;
+.movie-details-info strong {
+	color: var(--mat-primary);
 }
 
-.movie-details .mat-icon {
-	font-size: 2rem;
-	color: #888;
-	margin-top: 12px;
-}
-
-.movie-details .featured {
-	background: #1976d2;
-	color: #fff;
-	padding: 4px 12px;
-	border-radius: 8px;
-	font-size: 1rem;
-	margin-bottom: 12px;
-}

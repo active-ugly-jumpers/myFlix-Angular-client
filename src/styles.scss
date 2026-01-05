@@ -139,3 +139,14 @@ button:hover {
   justify-content: flex-end;
   padding: 8px 16px 16px 16px;
 }
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.action-buttons button {
+  min-width: 120px;
+  width: 120px;
+}
