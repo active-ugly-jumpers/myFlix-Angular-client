@@ -1,6 +1,7 @@
-<div *ngIf="genre" class="genre-details">
+<div *ngIf="genre" class="genre-details-card">
 	<h2>{{ genre.name }}</h2>
 	<p><strong>Description:</strong> {{ genre.description }}</p>
+	<button mat-raised-button color="primary" class="return-btn" (click)="returnToMovie()">Return to Movie Details</button>
 </div>
 <div *ngIf="!genre">
 	<p>Loading genre details...</p>

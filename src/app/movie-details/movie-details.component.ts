@@ -82,14 +82,14 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   goToDirector(name: string): void {
-    if (name) {
-      this.router.navigate(['/directors', name]);
+    if (name && this.movie?._id) {
+      this.router.navigate(['/directors', name], { queryParams: { movieId: this.movie._id } });
     }
   }
 
   goToGenre(name: string): void {
-    if (name) {
-      this.router.navigate(['/genres', name]);
+    if (name && this.movie?._id) {
+      this.router.navigate(['/genres', name], { queryParams: { movieId: this.movie._id } });
     }
   }
 }

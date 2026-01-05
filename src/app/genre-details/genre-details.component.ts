@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-genre-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './genre-details.component.html',
   styleUrls: ['./genre-details.component.scss']
 })
 export class GenreDetailsComponent implements OnInit {
   genre: any = null;
 
-  constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService) {}
+  movieId: string | null = null;
+
+  constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
     const name = this.route.snapshot.paramMap.get('name');
     const token = localStorage.getItem('token');
+    this.movieId = this.route.snapshot.queryParamMap.get('movieId');
     if (name && token) {
       this.fetchApiData.getGenre(name, token).subscribe({
         next: (genre: any) => {
@@ -25,6 +29,15 @@ export class GenreDetailsComponent implements OnInit {
         },
         error: (err: any) => console.error('Error loading genre:', err),
       });
+    }
+
+  }
+
+  returnToMovie(): void {
+    if (this.movieId) {
+      this.router.navigate(['/movies', this.movieId]);
+    } else {
+      this.router.navigate(['/movies']);
     }
   }
 }

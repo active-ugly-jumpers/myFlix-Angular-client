@@ -1,8 +1,9 @@
-<div *ngIf="director" class="director-details">
+<div *ngIf="director" class="director-details-card">
 	<h2>{{ director.name }}</h2>
 	<p><strong>Bio:</strong> {{ director.bio }}</p>
 	<p><strong>Birth:</strong> {{ director.birth }}</p>
 	<p *ngIf="director.death"><strong>Death:</strong> {{ director.death }}</p>
+	<button mat-raised-button color="primary" class="return-btn" (click)="returnToMovie()">Return to Movie Details</button>
 </div>
 <div *ngIf="!director">
 	<p>Loading director details...</p>

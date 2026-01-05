@@ -1,7 +1,7 @@
 nav.nav-bar {
 	display: flex;
 	align-items: center;
-	background: #fff;
+	background: var(--mat-primary, #673ab7);
 	padding: 0 24px;
 	height: 56px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -9,7 +9,7 @@ nav.nav-bar {
 }
 
 nav.nav-bar a {
-	color: #222;
+	color: #fff;
 	font-weight: 500;
 	padding: 8px 18px;
 	margin-right: 12px;
@@ -23,14 +23,12 @@ nav.nav-bar a {
 
 nav.nav-bar a.active,
 nav.nav-bar a:hover {
-	background: #f4f4f4;
-	color: #222;
+	background: rgba(255,255,255,0.15);
+	color: #fff;
 	box-shadow: 0 0 8px #bdbdbd80;
 }
 
-nav.nav-bar .logout-link {
-	background: #f4f4f4;
-	color: #222;
+nav.nav-bar .logout-btn {
 	margin-left: auto;
-	box-shadow: none;
+	min-width: 120px;
 }

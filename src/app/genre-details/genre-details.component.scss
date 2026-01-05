@@ -1,0 +1,27 @@
+.genre-details-card {
+	max-width: 400px;
+	margin: 60px auto;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+	padding: 32px 24px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.genre-details-card h2 {
+	color: var(--mat-primary, #673ab7);
+	margin-bottom: 18px;
+}
+
+.genre-details-card p {
+	color: #222;
+	margin-bottom: 18px;
+	text-align: center;
+}
+
+.return-btn {
+	min-width: 160px;
+	margin-top: 12px;
+}
