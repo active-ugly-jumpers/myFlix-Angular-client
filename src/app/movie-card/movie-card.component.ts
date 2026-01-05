@@ -22,12 +22,14 @@ export class MovieCardComponent implements OnInit {
   constructor(private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
+    // Get username from local storage for API calls
     this.username = localStorage.getItem('username');
     this.loadMovies();
     this.loadFavorites();
   }
 
   loadMovies(): void {
+    // Fetch all movies from API
     const token = localStorage.getItem('token');
     if (!token) return;
     this.fetchApiData.getAllMovies(token).subscribe({
@@ -37,6 +39,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   loadFavorites(): void {
+    // Fetch user's favorite movies from API
     const token = localStorage.getItem('token');
     if (!token || !this.username) return;
     this.fetchApiData.getUser(this.username, token).subscribe({
@@ -47,10 +50,15 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  // Check if a movie is in user's favorites
   isFavorite(movieId: string): boolean {
     return this.favoriteMovies.includes(movieId);
   }
 
+  /**
+   * Add or remove a movie from favorites.
+   * Only updates after backend confirms.
+   */
   toggleFavorite(movieId: string): void {
     const token = localStorage.getItem('token');
     if (!token || !this.username) return;

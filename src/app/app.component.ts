@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   title = 'myFlix-Angular-client';
+
+  // Check if user is logged in by verifying token presence
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }

@@ -13,12 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class DirectorDetailsComponent implements OnInit {
   director: any = null;
-
   movieId: string | null = null;
 
   constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
+    // Get director name and movieId from route, then fetch director details
     const name = this.route.snapshot.paramMap.get('name');
     const token = localStorage.getItem('token');
     this.movieId = this.route.snapshot.queryParamMap.get('movieId');
@@ -32,6 +32,9 @@ export class DirectorDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * Navigate back to the movie details or movies list.
+   */
   returnToMovie(): void {
     if (this.movieId) {
       this.router.navigate(['/movies', this.movieId]);

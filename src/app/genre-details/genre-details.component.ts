@@ -13,12 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class GenreDetailsComponent implements OnInit {
   genre: any = null;
-
   movieId: string | null = null;
 
   constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
+    // Get genre name and movieId from route, then fetch genre details
     const name = this.route.snapshot.paramMap.get('name');
     const token = localStorage.getItem('token');
     this.movieId = this.route.snapshot.queryParamMap.get('movieId');
@@ -30,9 +30,11 @@ export class GenreDetailsComponent implements OnInit {
         error: (err: any) => console.error('Error loading genre:', err),
       });
     }
-
   }
 
+  /**
+   * Navigate back to the movie details or movies list.
+   */
   returnToMovie(): void {
     if (this.movieId) {
       this.router.navigate(['/movies', this.movieId]);

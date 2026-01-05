@@ -14,6 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 export class NavigationBarComponent {
   constructor(private router: Router) {}
 
+  /**
+   * Log out the user by clearing local storage and navigating to welcome page.
+   */
   logout(): void {
     localStorage.clear();
     this.router.navigate(['/welcome']);

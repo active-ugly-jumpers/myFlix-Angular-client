@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
+    // Get movie id from route, fetch movie details and user's favorites
     this.username = localStorage.getItem('username');
     const id = this.route.snapshot.paramMap.get('id');
     const token = localStorage.getItem('token');
@@ -42,10 +43,14 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
 
+  // Check if a movie is in user's favorites
   isFavorite(movieId: string): boolean {
     return this.favoriteMovies.includes(movieId);
   }
 
+  /**
+   * Add or remove a movie from favorites, updating after backend confirms.
+   */
   toggleFavorite(movieId: string): void {
     const token = localStorage.getItem('token');
     if (!token || !this.username) return;

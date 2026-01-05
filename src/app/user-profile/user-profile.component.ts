@@ -35,9 +35,13 @@ export class UserProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Load user data and favorites on component init
     this.loadUser();
   }
 
+  /**
+   * Load user profile from API and then fetch all movies for favorite matching.
+   */
   loadUser(): void {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
@@ -54,6 +58,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+  // Load all movies to match user's favorites
   loadAllMovies(): void {
     const token = localStorage.getItem('token');
     if (!token) return;

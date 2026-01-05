@@ -28,6 +28,7 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
 
+  // User credentials bound to form inputs
   @Input() userData = { username: '', password: '' };
 
   constructor(
@@ -41,7 +42,10 @@ export class UserLoginFormComponent implements OnInit {
 
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Send login credentials to backend and handle response.
+   * On success, store token and username, close dialog, show message, and navigate to movies.
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       if (result.token) {

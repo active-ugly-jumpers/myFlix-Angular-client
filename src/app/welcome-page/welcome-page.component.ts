@@ -26,10 +26,13 @@ export class WelcomePageComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    // Check login state on page load
     this.updateLoginState();
   }
 
-  /** Update login state */
+  /**
+   * Update login state and username from local storage.
+   */
   private updateLoginState(): void {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('username');
@@ -37,6 +40,9 @@ export class WelcomePageComponent implements OnInit {
     this.username = user;
   }
 
+  /**
+   * Open registration dialog. If registration is successful, prompt login dialog.
+   */
   openUserRegistrationDialog(): void {
     const dialogRef = this.dialog.open(UserRegistrationFormComponent, {
       width: '280px',
@@ -51,6 +57,9 @@ export class WelcomePageComponent implements OnInit {
     });
   }
 
+  /**
+   * Open login dialog and update login state after closing.
+   */
   openUserLoginDialog(): void {
     const dialogRef = this.dialog.open(UserLoginFormComponent, {
       width: '280px',
