@@ -6,6 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
+/**
+ * Component for displaying details of a specific movie in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-movie-details',
   standalone: true,
@@ -18,8 +21,17 @@ export class MovieDetailsComponent implements OnInit {
   favoriteMovies: string[] = [];
   username: string | null = null;
 
+  /**
+   * Creates an instance of MovieDetailsComponent.
+   * @param route ActivatedRoute for accessing route parameters.
+   * @param fetchApiData Service for fetching API data.
+   * @param router Angular Router for navigation.
+   */
   constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
+  /**
+   * Angular lifecycle hook for component initialization. Fetches movie details and user's favorites.
+   */
   ngOnInit(): void {
     // Get movie id from route, fetch movie details and user's favorites
     this.username = localStorage.getItem('username');

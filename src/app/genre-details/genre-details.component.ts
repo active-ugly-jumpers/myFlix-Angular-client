@@ -4,6 +4,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
+/**
+ * Component for displaying genre details in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-genre-details',
   standalone: true,
@@ -15,10 +18,15 @@ export class GenreDetailsComponent implements OnInit {
   genre: any = null;
   movieId: string | null = null;
 
+  /**
+   * Creates an instance of GenreDetailsComponent.
+   * @param route ActivatedRoute for accessing route parameters.
+   * @param fetchApiData Service for fetching API data.
+   * @param router Angular Router for navigation.
+   */
   constructor(private route: ActivatedRoute, private fetchApiData: FetchApiDataService, private router: Router) {}
 
   ngOnInit(): void {
-    // Get genre name and movieId from route, then fetch genre details
     const name = this.route.snapshot.paramMap.get('name');
     const token = localStorage.getItem('token');
     this.movieId = this.route.snapshot.queryParamMap.get('movieId');
@@ -33,7 +41,7 @@ export class GenreDetailsComponent implements OnInit {
   }
 
   /**
-   * Navigate back to the movie details or movies list.
+   * Navigates back to the movie details or movies list.
    */
   returnToMovie(): void {
     if (this.movieId) {

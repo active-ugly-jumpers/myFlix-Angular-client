@@ -8,6 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
+/**
+ * Component for the user registration form in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-user-registration-form',
   templateUrl: './user-registration-form.component.html',
@@ -24,18 +27,31 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
   ],
 })
 export class UserRegistrationFormComponent implements OnInit {
-
+  /**
+   * User registration data bound to form inputs.
+   */
   @Input() userData = { username: '', password: '', email: '', birthday: '' };
 
+  /**
+   * Creates an instance of UserRegistrationFormComponent.
+   * @param fetchApiData Service for API calls.
+   * @param dialogRef Reference to the dialog containing this component.
+   * @param snackBar Material snackbar for notifications.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar) { }
 
+  /**
+   * Angular lifecycle hook for component initialization.
+   */
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * Sends the registration form inputs to the backend API.
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
       // Logic for a successful user registration goes here! (To be implemented)

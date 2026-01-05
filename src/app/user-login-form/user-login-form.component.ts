@@ -11,6 +11,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+/**
+ * Component for the user login form in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -27,10 +30,18 @@ import { Router } from '@angular/router';
   ],
 })
 export class UserLoginFormComponent implements OnInit {
-
-  // User credentials bound to form inputs
+  /**
+   * User credentials bound to form inputs.
+   */
   @Input() userData = { username: '', password: '' };
 
+  /**
+   * Creates an instance of UserLoginFormComponent.
+   * @param fetchApiData Service for API calls.
+   * @param dialogRef Reference to the dialog containing this component.
+   * @param snackBar Material snackbar for notifications.
+   * @param router Angular Router for navigation.
+   */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,

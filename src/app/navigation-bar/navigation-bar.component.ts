@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
+/**
+ * Navigation bar component for the myFlix Angular client.
+ * Provides navigation and logout functionality.
+ */
 @Component({
   selector: 'app-navigation-bar',
   standalone: true,
@@ -12,10 +16,14 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [CommonModule, RouterModule, MatButtonModule],
 })
 export class NavigationBarComponent {
+  /**
+   * Creates an instance of NavigationBarComponent.
+   * @param router Angular Router for navigation.
+   */
   constructor(private router: Router) {}
 
   /**
-   * Log out the user by clearing local storage and navigating to welcome page.
+   * Logs out the user by clearing local storage and navigating to the welcome page.
    */
   logout(): void {
     localStorage.clear();

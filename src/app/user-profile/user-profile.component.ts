@@ -9,6 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
+/**
+ * Component for displaying and managing the user's profile in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-user-profile',
   standalone: true,
@@ -29,11 +32,19 @@ export class UserProfileComponent implements OnInit {
   favoriteMovies: any[] = [];
   allMovies: any[] = [];
 
+  /**
+   * Creates an instance of UserProfileComponent.
+   * @param fetchApiData Service for API calls.
+   * @param router Angular Router for navigation.
+   */
   constructor(
     private fetchApiData: FetchApiDataService,
     private router: Router
   ) {}
 
+  /**
+   * Angular lifecycle hook for component initialization. Loads user data and favorites.
+   */
   ngOnInit(): void {
     // Load user data and favorites on component init
     this.loadUser();

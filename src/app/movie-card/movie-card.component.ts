@@ -6,6 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
+/**
+ * Component for displaying movie cards in the myFlix Angular client.
+ */
 @Component({
   selector: 'app-movie-card',
   standalone: true,
@@ -14,13 +17,22 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
+
   movies: any[] = [];
   favoriteMovies: string[] = [];
   username: string | null = null;
   selectedMovie: any = null;
 
+  /**
+   * Creates an instance of MovieCardComponent.
+   * @param fetchApiData Service for fetching API data.
+   * @param router Angular Router for navigation.
+   */
   constructor(private fetchApiData: FetchApiDataService, private router: Router) {}
 
+  /**
+   * Angular lifecycle hook for component initialization. Loads movies and favorites.
+   */
   ngOnInit(): void {
     // Get username from local storage for API calls
     this.username = localStorage.getItem('username');
