@@ -9,7 +9,12 @@
 			<img [src]="movie.imageURL" alt="{{ movie.title }} poster">
 		</div>
 		<div class="movie-details-info">
-			<h2>{{ movie.title }} <span class="movie-year">({{ movie.year }})</span></h2>
+			<h2>
+				{{ movie.title }} <span class="movie-year">({{ movie.year }})</span>
+				<button mat-icon-button color="accent" (click)="toggleFavorite(movie._id)" [attr.aria-label]="isFavorite(movie._id) ? 'Remove from favorites' : 'Add to favorites'">
+					<mat-icon>{{ isFavorite(movie._id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+				</button>
+			</h2>
 			<p><strong>Description:</strong> {{ movie.description }}</p>
 			<p>
 				<strong>Genre:</strong>
