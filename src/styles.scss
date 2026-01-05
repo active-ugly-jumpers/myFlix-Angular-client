@@ -1,13 +1,12 @@
-
+@use '@angular/material' as mat;
 // Custom Theming for Angular Material
 // For more information: https://material.angular.dev/guide/theming
-@use '@angular/material' as mat;
 
 @include mat.core();
 $Angular-myFlix-theme: mat.define-theme((
   color: (
     theme-type: light,
-    primary: mat.$azure-palette,
+    primary: mat.$violet-palette,
     tertiary: mat.$blue-palette,
   ),
   density: (
@@ -18,12 +17,42 @@ $Angular-myFlix-theme: mat.define-theme((
 :root {
   @include mat.all-component-themes($Angular-myFlix-theme);
 }
-html, body { 
+
+html,
+body {
   height: 100%;
   font-family: "Roboto", sans-serif;
   margin: 0;
   background: #f4f4f4;
   color: #222;
+}
+
+/* Center the welcome page globally */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* full viewport height */
+}
+.welcome-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.welcome-buttons button {
+  min-width: 120px;
+  width: 120px;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin: 5px;
 }
 
 a {
@@ -74,32 +103,37 @@ button:hover {
   flex-direction: column;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
   overflow: hidden;
   transition: box-shadow 0.2s, border 0.2s;
   border: 1px solid #e0e0e0;
 }
+
 .movie-card:hover {
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   border: 1px solid #bdbdbd;
 }
+
 .movie-card img {
   width: 100%;
   height: 320px;
   object-fit: cover;
   border-bottom: 1px solid #e0e0e0;
 }
+
 .movie-card mat-card-title {
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 8px;
   color: #222;
 }
+
 .movie-card mat-card-content {
   flex: 1;
   padding: 16px;
   color: #444;
 }
+
 .movie-card mat-card-actions {
   display: flex;
   justify-content: flex-end;

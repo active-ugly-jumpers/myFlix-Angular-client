@@ -1,18 +1,22 @@
+
 <div class="main-page" *ngIf="!isLoggedIn">
 	<h1>Welcome to myFlix!</h1>
-
-	<button
-		mat-raised-button
-		color="primary"
-		style="margin-right: 10px"
-		(click)="openUserRegistrationDialog()"
-	>
-		Sign Up
-	</button>
-
-	<button mat-raised-button color="primary" (click)="openUserLoginDialog()">
-		Login
-	</button>
+	<div class="welcome-buttons">
+		<button
+			mat-raised-button
+			color="primary"
+			(click)="openUserRegistrationDialog()"
+		>
+			Sign Up
+		</button>
+		<button
+			mat-raised-button
+			color="primary"
+			(click)="openUserLoginDialog()"
+		>
+			Login
+		</button>
+	</div>
 </div>
 
 <div *ngIf="isLoggedIn">
